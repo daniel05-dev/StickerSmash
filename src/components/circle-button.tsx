@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet } from 'react-native';
 import { SymbolView } from 'expo-symbols';
 
-import { colors, glassShadow, radius } from '@/constants/theme';
+import { colors, glassShadow } from '@/constants/theme';
 
 type Props = {
   onPress: () => void;
