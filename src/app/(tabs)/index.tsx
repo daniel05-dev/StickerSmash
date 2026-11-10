@@ -58,8 +58,10 @@ export default function Index() {
       <SkyGradient />
       <SafeAreaView style={styles.container}>
         <View style={styles.imageContainer}>
-          <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage} />
-          {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
+          <View>
+            <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage} />
+            {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
+          </View>
         </View>
         {showAppOptions ? (
           <View style={styles.footerContainer}>
