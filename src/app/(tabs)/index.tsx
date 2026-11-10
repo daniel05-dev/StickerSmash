@@ -1,47 +1,45 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors, radius, spacing, typography } from '@/constants/theme';
+import Button from '@/components/button';
+import ImageViewer from '@/components/image-viewer';
+import SkyGradient from '@/components/sky-gradient';
+import { colors } from '@/constants/theme';
+
+const PlaceholderImage = require('@/assets/images/background-image.png');
 
 export default function Index() {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.card}>
-        <Text style={styles.emoji}>🫧</Text>
-        <Text style={styles.title}>StickerSmash</Text>
-        <Text style={styles.subtitle}>Convierte tus fotos en collages con stickers.</Text>
-      </View>
-    </SafeAreaView>
+    <View style={styles.screen}>
+      <SkyGradient />
+      <SafeAreaView style={styles.container}>
+        <View style={styles.imageContainer}>
+          <ImageViewer imgSource={PlaceholderImage} />
+        </View>
+        <View style={styles.footerContainer}>
+          <Button theme="primary" label="Elegir foto" onPress={() => alert('Pulsaste un botón.')} />
+          <Button label="Usar esta foto" onPress={() => alert('Pulsaste un botón.')} />
+        </View>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
     backgroundColor: colors.background,
   },
-  card: {
+  container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: spacing.xl,
-    padding: spacing.xxl,
-    borderRadius: radius.lg,
-    backgroundColor: colors.surface,
-    gap: spacing.md,
   },
-  emoji: {
-    fontSize: 56,
+  imageContainer: {
+    flex: 1,
+    paddingTop: Platform.select({ web: 96, default: 20 }),
   },
-  title: {
-    fontFamily: typography.display,
-    fontSize: typography.sizeXl,
-    color: colors.text,
-  },
-  subtitle: {
-    fontFamily: typography.body,
-    fontSize: typography.sizeMd,
-    color: colors.textMuted,
-    textAlign: 'center',
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
   },
 });

@@ -29,6 +29,8 @@ export const colors = {
   accentBright: '#39C8E4',
   /** Aqua pálido para degradados y halos. */
   accentGlow: '#7FDCEF',
+  /** Aqua sombra para la base de los degradados glossy. */
+  accentShade: '#2FB3D6',
   /** Verde césped para acentos decorativos. */
   secondary: '#59B22F',
   /** Texto sobre accent. */
@@ -41,6 +43,8 @@ export const colors = {
   glass: 'rgba(255, 255, 255, 0.55)',
   /** Vidrio translúcido más opaco (bordes glossy). */
   glassStrong: 'rgba(255, 255, 255, 0.75)',
+  /** Brillo especular de la mitad superior de los botones glossy. */
+  sheen: 'rgba(255, 255, 255, 0.35)',
   /** Sombra azulada de las tarjetas de cristal. */
   shadow: '#4A93AC',
   /** Indicador de la pestaña activa (Android y web). */
@@ -80,6 +84,18 @@ export const typography = {
 export const skyGradient = {
   colors: [colors.backgroundDeep, colors.backgroundHorizon, colors.accentGlow, colors.background],
   locations: [0, 0.12, 0.28, 0.5],
+} as const;
+
+/** Degradado glossy de los botones primarios (brillo arriba, aqua abajo). */
+export const buttonGradient = {
+  colors: [colors.accentGlow, colors.accentBright, colors.accentShade],
+  locations: [0, 0.45, 1],
+} as const;
+
+/** Tamaño fijo del lienzo de la imagen (usado también por los gestos). */
+export const imageSize = {
+  width: 320,
+  height: 440,
 } as const;
 
 /** Sombra suave de las tarjetas de cristal. */
